@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -37,16 +37,16 @@ export default function RegisterPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: ""
+        [name]: "",
       }));
     }
   };
@@ -67,7 +67,10 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Name Input */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Nama Lengkap
           </label>
           <input
@@ -77,14 +80,17 @@ export default function RegisterPage() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition"
             placeholder="Masukkan nama lengkap Anda"
           />
         </div>
 
         {/* Email Input */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Email
           </label>
           <input
@@ -94,14 +100,17 @@ export default function RegisterPage() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition"
             placeholder="Masukkan email Anda"
           />
         </div>
 
         {/* Password Input */}
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Password
           </label>
           <input
@@ -111,8 +120,9 @@ export default function RegisterPage() {
             value={formData.password}
             onChange={handleChange}
             required
-            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition ${errors.password ? "border-red-500" : "border-gray-300"
-              }`}
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition ${
+              errors.password ? "border-red-500" : "border-gray-300"
+            }`}
             placeholder="Masukkan password (min. 6 karakter)"
           />
           {errors.password && (
@@ -122,7 +132,10 @@ export default function RegisterPage() {
 
         {/* Confirm Password Input */}
         <div>
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="confirmPassword"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Konfirmasi Password
           </label>
           <input
@@ -132,19 +145,22 @@ export default function RegisterPage() {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
-            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition ${errors.confirmPassword ? "border-red-500" : "border-gray-300"
-              }`}
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition ${
+              errors.confirmPassword ? "border-red-500" : "border-gray-300"
+            }`}
             placeholder="Ulangi password Anda"
           />
           {errors.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+            <p className="mt-1 text-sm text-red-600">
+              {errors.confirmPassword}
+            </p>
           )}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3 px-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition"
+          className="w-full py-3 px-4 bg-[#27548A] text-white font-semibold rounded-lg hover:bg-[#578FCA] focus:ring-2 focus:ring-[#27548A] focus:ring-offset-2 transition"
         >
           Daftar
         </button>
@@ -155,8 +171,8 @@ export default function RegisterPage() {
         <p className="text-sm text-gray-600">
           Sudah punya akun?{" "}
           <Link
-            href="/auth/login"
-            className="font-medium text-gray-900 hover:text-gray-700 transition"
+            href="/login"
+            className="font-medium text-[#27548A] hover:text-[#578FCA] transition"
           >
             Masuk sekarang
           </Link>
