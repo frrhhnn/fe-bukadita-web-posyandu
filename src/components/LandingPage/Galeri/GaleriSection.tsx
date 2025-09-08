@@ -6,17 +6,32 @@ export default function GaleriSection() {
     {
       id: 1,
       title: "Pelatihan Kader Posyandu",
-      image: "/images/bg-poster.jpg",
+      size: "large", // 767x345
     },
-    { id: 2, title: "Kegiatan Pembelajaran", image: "/images/bg-poster.jpg" },
-    { id: 3, title: "Sertifikasi Kader", image: "/images/bg-poster.jpg" },
-    { id: 4, title: "Workshop Digital", image: "/images/bg-poster.jpg" },
-    { id: 5, title: "Praktik Lapangan", image: "/images/bg-poster.jpg" },
-    { id: 6, title: "Evaluasi Pembelajaran", image: "/images/bg-poster.jpg" },
+    {
+      id: 2,
+      title: "Kegiatan Pembelajaran",
+      size: "small", // 373x345
+    },
+    {
+      id: 3,
+      title: "Sertifikasi Kader",
+      size: "small", // 373x345
+    },
+    {
+      id: 4,
+      title: "Workshop Digital",
+      size: "small", // 373x345
+    },
+    {
+      id: 5,
+      title: "Praktik Lapangan",
+      size: "small", // 373x345
+    },
   ];
 
   return (
-    <section id="galeri" className="relative py-20 bg-gray-50 overflow-hidden">
+    <section id="galeri" className="relative py-20 bg-white overflow-hidden">
       {/* Dot Pattern Background */}
       <DotPattern
         className="absolute inset-0 h-full w-full text-gray-200/25"
@@ -28,46 +43,199 @@ export default function GaleriSection() {
         glow={false}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#27548A] mb-4 font-poppins">
-            Galeri Kegiatan
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Title Section - Align Right */}
+        <div className="mb-16 text-right">
+          <h2 className="mb-4">
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "normal",
+              }}
+            >
+              Galeri{" "}
+            </span>
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "normal",
+              }}
+            >
+              Posyandu
+            </span>
+            <br />
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "normal",
+              }}
+            >
+              Kopelma
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg font-poppins">
-            Dokumentasi kegiatan pembelajaran dan pelatihan kader posyandu
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {galleryItems.map((item) => (
+        {/* Bento Grid Layout - 2 Rows */}
+        <div className="flex flex-col gap-6 max-w-6xl mx-auto">
+          {/* First Row - Large image on left, 2 small images on right */}
+          <div className="flex gap-6 justify-center">
+            {/* Large Image */}
             <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+              style={{
+                width: "767px",
+                height: "345px",
+                flexShrink: 0,
+                borderRadius: "20px",
+              }}
             >
-              <div className="h-48 bg-gradient-to-br from-[#578FCA]/20 to-[#27548A]/20 flex items-center justify-center">
+              <div className="text-center">
+                <svg
+                  className="w-16 h-16 text-gray-500 mx-auto mb-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-gray-500 font-semibold font-poppins">
+                  {galleryItems[0].title}
+                </span>
+              </div>
+            </div>
+
+            {/* Two Small Images Stacked */}
+            <div className="flex flex-col gap-6">
+              <div
+                className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+                style={{
+                  width: "373px",
+                  height: "165px",
+                  flexShrink: 0,
+                  borderRadius: "20px",
+                }}
+              >
                 <div className="text-center">
                   <svg
-                    className="w-12 h-12 text-[#27548A] mx-auto mb-2"
+                    className="w-10 h-10 text-gray-500 mx-auto mb-2"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-[#27548A] font-semibold font-poppins">
-                    Gambar {item.id}
+                  <span className="text-gray-500 font-medium font-poppins text-sm">
+                    {galleryItems[1].title}
                   </span>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-[#27548A] mb-2 font-poppins">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm font-poppins">
-                  Dokumentasi kegiatan pembelajaran dan pelatihan
-                </p>
+
+              <div
+                className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+                style={{
+                  width: "373px",
+                  height: "165px",
+                  flexShrink: 0,
+                  borderRadius: "20px",
+                }}
+              >
+                <div className="text-center">
+                  <svg
+                    className="w-10 h-10 text-gray-500 mx-auto mb-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-gray-500 font-medium font-poppins text-sm">
+                    {galleryItems[2].title}
+                  </span>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Second Row - 3 equal-sized images */}
+          <div className="flex gap-6 justify-center">
+            <div
+              className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+              style={{
+                width: "373px",
+                height: "250px",
+                flexShrink: 0,
+                borderRadius: "20px",
+              }}
+            >
+              <div className="text-center">
+                <svg
+                  className="w-12 h-12 text-gray-500 mx-auto mb-3"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-gray-500 font-medium font-poppins">
+                  {galleryItems[3].title}
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+              style={{
+                width: "373px",
+                height: "250px",
+                flexShrink: 0,
+                borderRadius: "20px",
+              }}
+            >
+              <div className="text-center">
+                <svg
+                  className="w-12 h-12 text-gray-500 mx-auto mb-3"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-gray-500 font-medium font-poppins">
+                  {galleryItems[4].title}
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center"
+              style={{
+                width: "373px",
+                height: "250px",
+                flexShrink: 0,
+                borderRadius: "20px",
+              }}
+            >
+              <div className="text-center">
+                <svg
+                  className="w-12 h-12 text-gray-500 mx-auto mb-3"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-gray-500 font-medium font-poppins">
+                  Workshop Posyandu
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
