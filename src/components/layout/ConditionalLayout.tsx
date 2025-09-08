@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import ResizableNavbar from "../navbar/resizable-navbar";
-import Footer from "../footer/footer";
 
 export default function ConditionalLayout({
   children,
@@ -29,7 +28,6 @@ export default function ConditionalLayout({
     <>
       <ResizableNavbar />
       {children}
-      <Footer />
     </>
   );
 }
