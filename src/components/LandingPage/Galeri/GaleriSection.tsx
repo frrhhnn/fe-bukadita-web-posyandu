@@ -17,14 +17,14 @@ export default function GaleriSection() {
 
   return (
     <section id="galeri" className="relative py-20 bg-gray-50 overflow-hidden">
-      {/* Dot Pattern Background with Glow Effect */}
+      {/* Dot Pattern Background */}
       <DotPattern
-        className="absolute inset-0 h-full w-full text-blue-300/15"
-        width={32}
-        height={32}
+        className="absolute inset-0 h-full w-full text-gray-200/25"
+        width={28}
+        height={28}
         cx={1}
         cy={1}
-        cr={1}
+        cr={0.7}
         glow={false}
       />
 

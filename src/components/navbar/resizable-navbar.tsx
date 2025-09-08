@@ -126,17 +126,20 @@ function MobileMenu({
               const isActive = activeSection === sectionId;
               return (
                 <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={`block text-base font-medium py-3 px-4 rounded-md transition-all ${
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSmoothScroll(item.href);
+                      onClose();
+                    }}
+                    className={`block text-base font-medium py-3 px-4 rounded-md transition-all w-full text-left ${
                       isActive
                         ? "text-white bg-white/20 border-l-4 border-white"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
                     }`}
-                    onClick={onClose}
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 </li>
               );
             })}
@@ -173,6 +176,18 @@ const MENU: NavItem[] = [
   { name: "Kontak", href: "#kontak" },
 ];
 
+// Helper function for smooth scrolling
+const handleSmoothScroll = (href: string) => {
+  const targetId = href.replace("#", "");
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
 function useActiveSection() {
   const [activeSection, setActiveSection] = useState("");
 
@@ -186,20 +201,36 @@ function useActiveSection() {
       // Throttle scroll events to improve performance
       timeoutId = setTimeout(() => {
         const sections = MENU.map((item) => item.href.replace("#", ""));
-        const scrollPosition = window.scrollY + 100;
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
 
-        for (const section of sections) {
+        // Check if we're at the bottom of the page (kontak section)
+        if (scrollPosition + windowHeight >= documentHeight - 50) {
+          setActiveSection("kontak");
+          return;
+        }
+
+        let currentSection = "";
+
+        // Loop through sections in reverse order to prioritize later sections
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
           const element = document.getElementById(section);
           if (element) {
-            const { offsetTop, offsetHeight } = element;
-            if (
-              scrollPosition >= offsetTop &&
-              scrollPosition < offsetTop + offsetHeight
-            ) {
-              setActiveSection(section);
-              return;
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + scrollPosition;
+
+            // If the section is visible in viewport (with offset)
+            if (scrollPosition + 150 >= elementTop) {
+              currentSection = section;
+              break;
             }
           }
+        }
+
+        if (currentSection) {
+          setActiveSection(currentSection);
         }
       }, 16); // ~60fps throttling
     };
@@ -309,14 +340,17 @@ export default function ResizableNavbar() {
                 const sectionId = item.href.replace("#", "");
                 const isActive = activeSection === sectionId;
                 return (
-                  <Link
+                  <button
                     key={item.name}
-                    href={item.href}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all relative ${
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSmoothScroll(item.href);
+                    }}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all relative z-10 ${
                       isActive
                         ? isScrolled
-                          ? "text-white bg-white/20"
-                          : "text-[#578FCA] bg-[#578FCA]/10"
+                          ? "text-white bg-white/20 relative z-20"
+                          : "text-[#578FCA] bg-[#578FCA]/10 relative z-20"
                         : isScrolled
                         ? "text-white/80 hover:text-white hover:bg-white/10"
                         : "text-[#578FCA]/80 hover:text-[#578FCA] hover:bg-[#578FCA]/10"
@@ -326,7 +360,7 @@ export default function ResizableNavbar() {
                     {isActive && (
                       <motion.div
                         layoutId="navbar-active"
-                        className={`absolute inset-0 rounded-full ${
+                        className={`absolute inset-0 rounded-full z-0 ${
                           isScrolled ? "bg-white/20" : "bg-[#578FCA]/10"
                         }`}
                         transition={{
@@ -336,7 +370,7 @@ export default function ResizableNavbar() {
                         }}
                       />
                     )}
-                  </Link>
+                  </button>
                 );
               })}
             </div>
