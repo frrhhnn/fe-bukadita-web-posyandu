@@ -9,33 +9,33 @@ export default function PertanyaanSection() {
   const faqs = [
     {
       id: 1,
-      question: "Apa itu Bukadita?",
+      question: "Pembelajaran yang Disesuaikan",
       answer:
-        "Bukadita (Buku Kader Digital) adalah sistem pembelajaran mandiri untuk kader posyandu di Kopelma Darussalam yang dirancang untuk meningkatkan kualitas pelayanan kesehatan masyarakat.",
+        "Materi pembelajaran Bukadita dirancang khusus untuk kader posyandu dengan pendekatan yang mudah dipahami dan dapat diterapkan langsung di lapangan.",
     },
     {
       id: 2,
-      question: "Siapa yang bisa menggunakan sistem ini?",
+      question: "Sistem Tracking Progress yang Komprehensif",
       answer:
-        "Sistem ini diperuntukkan bagi kader posyandu, tenaga kesehatan, dan masyarakat yang ingin belajar tentang kesehatan ibu dan anak serta manajemen posyandu.",
+        "Bukadita menyediakan sistem pelacakan pembelajaran yang detail, memungkinkan kader untuk memantau perkembangan dan pencapaian mereka secara real-time.",
     },
     {
       id: 3,
-      question: "Apakah ada sertifikat setelah menyelesaikan pembelajaran?",
+      question: "Sertifikasi Digital Terakreditasi",
       answer:
-        "Ya, Anda akan mendapatkan sertifikat digital setelah menyelesaikan seluruh modul pembelajaran dan lulus evaluasi yang disediakan.",
+        "Setiap penyelesaian modul akan mendapatkan sertifikat digital yang diakui dan dapat digunakan untuk pengembangan karir sebagai kader posyandu.",
     },
     {
       id: 4,
-      question: "Bagaimana cara mengakses materi pembelajaran?",
+      question: "Komunitas dan Dukungan Expert",
       answer:
-        "Setelah mendaftar dan login, Anda dapat mengakses semua materi pembelajaran melalui dashboard user. Materi disusun secara bertahap dari tingkat dasar hingga lanjutan.",
+        "Platform menyediakan akses ke komunitas kader dan konsultasi langsung dengan para ahli kesehatan untuk mendapatkan panduan terbaik.",
     },
     {
       id: 5,
-      question: "Apakah pembelajaran ini gratis?",
+      question: "Interface yang User-Friendly",
       answer:
-        "Ya, platform Bukadita menyediakan pembelajaran gratis untuk semua kader posyandu dan masyarakat yang ingin meningkatkan pengetahuan tentang kesehatan.",
+        "Bukadita dirancang dengan antarmuka yang intuitif dan mudah digunakan, bahkan untuk pengguna yang belum terbiasa dengan teknologi digital.",
     },
   ];
 
@@ -50,41 +50,83 @@ export default function PertanyaanSection() {
     >
       {/* Dot Pattern Background */}
       <DotPattern
-        className="absolute inset-0 h-full w-full text-blue-100/30"
-        width={26}
-        height={26}
+        className="absolute inset-0 h-full w-full text-gray-200/25"
+        width={28}
+        height={28}
         cx={1}
         cy={1}
-        cr={0.8}
+        cr={0.7}
         glow={false}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#27548A] mb-4 font-poppins">
-            Pertanyaan Umum
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Title Section - Align Left */}
+        <div className="mb-16">
+          <h2 className="mb-4 text-left">
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "normal",
+              }}
+            >
+              Kenapa{" "}
+            </span>
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "normal",
+              }}
+            >
+              Bukadita
+            </span>
+            <br />
+            <span
+              style={{
+                color: "#27548A",
+                fontFamily: "Poppins",
+                fontSize: "64px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "normal",
+              }}
+            >
+              Berbeda
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg font-poppins">
-            Temukan jawaban untuk pertanyaan yang sering diajukan
-          </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6 w-full">
           {faqs.map((faq) => (
             <div
               key={faq.id}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow w-full"
             >
               <button
                 onClick={() => toggleFaq(faq.id)}
-                className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition-colors"
+                className="w-full px-8 py-6 text-left bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-[#27548A] font-poppins">
+                  <h3
+                    className="font-semibold text-[#27548A]"
+                    style={{
+                      fontFamily: "Poppins",
+                      fontSize: "20px",
+                      fontWeight: 600,
+                      lineHeight: "1.4",
+                    }}
+                  >
                     {faq.question}
                   </h3>
                   <svg
-                    className={`w-5 h-5 text-[#578FCA] transform transition-transform ${
+                    className={`w-6 h-6 text-[#578FCA] transform transition-transform flex-shrink-0 ml-4 ${
                       openFaq === faq.id ? "rotate-180" : ""
                     }`}
                     fill="none"
@@ -101,40 +143,22 @@ export default function PertanyaanSection() {
                 </div>
               </button>
               {openFaq === faq.id && (
-                <div className="px-6 py-4 bg-white border-t border-gray-200">
-                  <p className="text-gray-600 font-poppins leading-relaxed">
+                <div className="px-8 py-6 bg-gray-50 border-t border-gray-200">
+                  <p
+                    className="text-gray-700"
+                    style={{
+                      fontFamily: "Poppins",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      lineHeight: "1.6",
+                    }}
+                  >
                     {faq.answer}
                   </p>
                 </div>
               )}
             </div>
           ))}
-        </div>
-
-        {/* Contact CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4 font-poppins">
-            Masih ada pertanyaan lain?
-          </p>
-          <a
-            href="#kontak"
-            className="inline-flex items-center px-6 py-3 bg-[#578FCA] text-white rounded-lg hover:bg-[#27548A] transition-colors font-poppins"
-          >
-            Hubungi Kami
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
         </div>
       </div>
     </section>
