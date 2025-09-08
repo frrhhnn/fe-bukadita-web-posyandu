@@ -103,7 +103,10 @@ export default function FiturSection() {
   ];
 
   return (
-    <section id="fitur" className="relative py-20 bg-white overflow-hidden">
+    <section
+      id="fitur"
+      className="relative py-12 sm:py-16 lg:py-20 bg-white overflow-hidden"
+    >
       {/* Dot Pattern Background */}
       <DotPattern
         className="absolute inset-0 h-full w-full text-gray-200/25"
@@ -115,52 +118,25 @@ export default function FiturSection() {
         glow={false}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
-        <div className="mb-16">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
           <h2 className="mb-4 text-left">
-            <span
-              style={{
-                color: "#27548A",
-                fontFamily: "Poppins",
-                fontSize: "64px",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "normal",
-              }}
-            >
+            <span className="text-[#27548A] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-normal leading-tight">
               Fitur{" "}
             </span>
-            <span
-              style={{
-                color: "#27548A",
-                fontFamily: "Poppins",
-                fontSize: "64px",
-                fontStyle: "italic",
-                fontWeight: 500,
-                lineHeight: "normal",
-              }}
-            >
+            <span className="text-[#27548A] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] italic font-medium leading-tight">
               Interaktif
             </span>
             <br />
-            <span
-              style={{
-                color: "#27548A",
-                fontFamily: "Poppins",
-                fontSize: "64px",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "normal",
-              }}
-            >
+            <span className="text-[#27548A] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-normal leading-tight">
               Bukadita
             </span>
           </h2>
         </div>
 
         {/* Infinite Moving Feature Cards */}
-        <div className="mt-16">
+        <div className="mt-8 sm:mt-12 lg:mt-16">
           <InfiniteMovingCards
             features={features}
             direction="left"

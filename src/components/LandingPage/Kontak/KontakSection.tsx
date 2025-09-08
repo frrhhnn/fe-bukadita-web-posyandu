@@ -6,7 +6,7 @@ export default function KontakSection() {
   return (
     <section
       id="kontak"
-      className="relative py-20 bg-[#27548A] overflow-hidden"
+      className="relative py-12 sm:py-16 lg:py-20 bg-[#27548A] overflow-hidden"
     >
       {/* Dot Pattern Background */}
       <DotPattern
@@ -19,25 +19,25 @@ export default function KontakSection() {
         glow={true}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="text-right mb-16">
-          <h2 className="text-[64px] font-bold text-white mb-4 font-poppins">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center sm:text-right mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-white mb-4 font-poppins leading-tight">
             Hubungi Kami
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-8 font-poppins">
+          <div className="lg:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 font-poppins">
               Informasi Kontak
             </h3>
 
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -45,10 +45,10 @@ export default function KontakSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1 font-poppins">
+                  <h4 className="text-white font-semibold mb-1 font-poppins text-sm sm:text-base">
                     Alamat
                   </h4>
-                  <p className="text-blue-100 font-poppins">
+                  <p className="text-blue-100 font-poppins text-sm sm:text-base leading-relaxed">
                     Kopelma Darussalam
                     <br />
                     Banda Aceh, Aceh
@@ -58,10 +58,10 @@ export default function KontakSection() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -69,10 +69,10 @@ export default function KontakSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1 font-poppins">
+                  <h4 className="text-white font-semibold mb-1 font-poppins text-sm sm:text-base">
                     Email
                   </h4>
-                  <p className="text-blue-100 font-poppins">
+                  <p className="text-blue-100 font-poppins text-sm sm:text-base leading-relaxed">
                     bukadita@kopelma.ac.id
                     <br />
                     info@bukadita.ac.id
@@ -80,10 +80,10 @@ export default function KontakSection() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#578FCA] rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -91,10 +91,10 @@ export default function KontakSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1 font-poppins">
+                  <h4 className="text-white font-semibold mb-1 font-poppins text-sm sm:text-base">
                     Telepon
                   </h4>
-                  <p className="text-blue-100 font-poppins">
+                  <p className="text-blue-100 font-poppins text-sm sm:text-base leading-relaxed">
                     (0651) 123-4567
                     <br />
                     +62 812-3456-7890
@@ -105,21 +105,21 @@ export default function KontakSection() {
           </div>
 
           {/* Social Media Links */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-8 font-poppins">
+          <div className="lg:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 font-poppins">
               Ikuti Kami
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <a
                 href="https://instagram.com/bukadita"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 p-4 bg-[#578FCA]/20 rounded-lg hover:bg-[#578FCA]/30 transition-colors"
+                className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-[#578FCA]/20 rounded-lg hover:bg-[#578FCA]/30 transition-colors"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -127,10 +127,10 @@ export default function KontakSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold font-poppins">
+                  <h4 className="text-white font-semibold font-poppins text-sm sm:text-base">
                     Instagram
                   </h4>
-                  <p className="text-blue-100 text-sm font-poppins">
+                  <p className="text-blue-100 text-xs sm:text-sm font-poppins">
                     @bukadita_official
                   </p>
                 </div>
@@ -214,12 +214,12 @@ export default function KontakSection() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-8 font-poppins">
+          <div className="lg:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 font-poppins">
               Link Cepat
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <Link
                 href="/beranda"
                 className="block text-blue-100 hover:text-white transition-colors font-poppins"
@@ -282,12 +282,12 @@ export default function KontakSection() {
         </div>
 
         {/* Footer Info */}
-        <div className="mt-16 pt-8 border-t border-blue-400/20">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-blue-400/20">
           <div className="text-center">
-            <p className="text-blue-100 mb-4 font-poppins">
+            <p className="text-blue-100 mb-3 sm:mb-4 font-poppins text-sm sm:text-base">
               © 2025 Bukadita. Semua hak cipta dilindungi.
             </p>
-            <p className="text-blue-100/80 text-sm font-poppins">
+            <p className="text-blue-100/80 text-xs sm:text-sm font-poppins max-w-2xl mx-auto">
               Dikembangkan dengan ❤️ untuk meningkatkan kualitas kesehatan
               posyandu di Indonesia
             </p>
