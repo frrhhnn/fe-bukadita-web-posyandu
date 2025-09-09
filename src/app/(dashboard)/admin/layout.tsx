@@ -1,24 +1,18 @@
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Admin Dashboard Layout */}
-      <div className="flex">
-        {/* Sidebar */}
-        <aside className="w-64 bg-[#27548A] text-white min-h-screen">
-          <div className="p-6">
-            <h2 className="text-xl font-bold">Admin Dashboard</h2>
-          </div>
-          <nav className="mt-8">
-            {/* Navigation items akan ditambahkan nanti */}
-          </nav>
-        </aside>
+"use client"
 
-        {/* Main Content */}
-        <main className="flex-1 p-6">{children}</main>
+import { AdminSidebar, AdminHeader } from "@/components/Admin";
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-screen bg-slate-50">
+      <AdminSidebar />
+      <div className="flex-1 flex flex-col">
+        <AdminHeader />
+        <main className="flex-1 overflow-auto">
+          <div className="mx-auto px-6 py-6">
+            {children}
+          </div>
+        </main>
       </div>
     </div>
   );

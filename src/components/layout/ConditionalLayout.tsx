@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import ResizableNavbar from "../navbar/resizable-navbar";
+import ResizableNavbar from "../shared/resizable-navbar";
 
 export default function ConditionalLayout({
   children,

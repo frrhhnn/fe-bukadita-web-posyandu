@@ -77,7 +77,7 @@ export default function BerandaSection() {
               autoPlay
               playsInline
             >
-              <source src="/dummy/test.mp4" type="video/mp4" />
+              <source src="/videos/bg-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
