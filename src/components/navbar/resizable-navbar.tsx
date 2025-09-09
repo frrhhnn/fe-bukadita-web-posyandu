@@ -90,10 +90,10 @@ function MobileMenu({
         <div className="flex items-center justify-between">
           <Link href="/" className="inline-flex">
             <Image
-              src="/images/logo-putih.png"
+              src="/images/logo-default.svg"
               alt="Logo Bukadita"
-              width={120}
-              height={40}
+              width={75}
+              height={22}
             />
           </Link>
           <button
@@ -311,22 +311,22 @@ export default function ResizableNavbar() {
               transition={{ duration: 0.2 }}
             >
               <Link href="/" className="inline-flex items-center">
-                {/* Logo ketika tidak di-scroll (hitam) */}
+                {/* Logo ketika tidak di-scroll (default) */}
                 <Image
-                  src="/images/logo-hitam.png"
+                  src="/images/logo-default.svg"
                   alt="Logo Bukadita"
-                  width={isScrolled ? 100 : 120}
-                  height={isScrolled ? 28 : 32}
+                  width={isScrolled ? 60 : 75}
+                  height={isScrolled ? 18 : 22}
                   className={`transition-all duration-200 ${
                     isScrolled ? "hidden" : "block"
                   }`}
                 />
                 {/* Logo ketika di-scroll (putih) */}
                 <Image
-                  src="/images/logo-putih.png"
+                  src="/images/logo-putih.svg"
                   alt="Logo Bukadita"
-                  width={isScrolled ? 100 : 120}
-                  height={isScrolled ? 28 : 32}
+                  width={isScrolled ? 60 : 75}
+                  height={isScrolled ? 18 : 22}
                   className={`transition-all duration-200 ${
                     isScrolled ? "block" : "hidden"
                   }`}

@@ -20,9 +20,19 @@ export default function KontakSection() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center sm:text-right mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-white mb-4 font-poppins leading-tight">
-            Hubungi Kami
+        {/* Title Section - Align Right */}
+        <div className="mb-8 sm:mb-12 lg:mb-16 text-right">
+          <h2 className="mb-4">
+            <span className="text-[#ffffff] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-normal leading-tight">
+              Kontak{" "}
+            </span>
+            <span className="text-[#ffffff] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] italic font-medium leading-tight">
+              Kami
+            </span>
+            <br />
+            <span className="text-[#ffffff] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-normal leading-tight">
+              Langsung
+            </span>
           </h2>
         </div>
 
