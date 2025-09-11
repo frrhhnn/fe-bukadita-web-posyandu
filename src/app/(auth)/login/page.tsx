@@ -72,20 +72,20 @@ export default function LoginPage() {
   return (
     <div className="w-full">
       {/* Logo */}
-      <div className="text-center mb-8">
-        <div className="flex justify-center mb-6">
+      <div className="text-center mb-6 sm:mb-8">
+        <div className="flex justify-center mb-4 sm:mb-6">
           <Image
             src="/images/logo-default.svg"
             alt="BukaDita Logo"
             width={80}
             height={80}
-            className="w-20 h-20"
+            className="w-16 h-16 sm:w-20 sm:h-20"
           />
         </div>
-        <h1 className="text-3xl font-bold text-[#27548A] mb-2 font-poppins">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#27548A] mb-2 font-poppins">
           Masuk ke Akun
         </h1>
-        <p className="text-[#578FCA] font-medium font-poppins">
+        <p className="text-sm sm:text-base text-[#578FCA] font-medium font-poppins">
           Selamat datang kembali di BukaDita
         </p>
       </div>
@@ -98,7 +98,7 @@ export default function LoginPage() {
       )}
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Email Input */}
         <div>
           <label
@@ -114,7 +114,7 @@ export default function LoginPage() {
             value={formData.email}
             onChange={handleChange}
             required
-            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 ${
+            className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 text-sm sm:text-base ${
               errors.email
                 ? "border-red-500 bg-red-50"
                 : "border-gray-300 hover:border-[#578FCA]"
@@ -143,7 +143,7 @@ export default function LoginPage() {
             value={formData.password}
             onChange={handleChange}
             required
-            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 ${
+            className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 text-sm sm:text-base ${
               errors.password
                 ? "border-red-500 bg-red-50"
                 : "border-gray-300 hover:border-[#578FCA]"
@@ -158,7 +158,7 @@ export default function LoginPage() {
         </div>
 
         {/* Remember Me & Forgot Password */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
           <div className="flex items-center">
             <input
               type="checkbox"
@@ -187,7 +187,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-3 px-4 bg-gradient-to-r from-[#27548A] to-[#578FCA] text-white font-semibold rounded-xl hover:from-[#1e3f6f] hover:to-[#4681c4] focus:ring-2 focus:ring-[#27548A] focus:ring-offset-2 transition-all duration-200 font-poppins disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+          className="w-full py-2.5 sm:py-3 px-4 bg-gradient-to-r from-[#27548A] to-[#578FCA] text-white font-semibold rounded-xl hover:from-[#1e3f6f] hover:to-[#4681c4] focus:ring-2 focus:ring-[#27548A] focus:ring-offset-2 transition-all duration-200 font-poppins disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-sm sm:text-base"
         >
           {isLoading ? (
             <>
@@ -201,7 +201,7 @@ export default function LoginPage() {
       </form>
 
       {/* Divider */}
-      <div className="my-6 flex items-center">
+      <div className="my-4 sm:my-6 flex items-center">
         <div className="flex-1 border-t border-gray-300"></div>
         <span className="px-4 text-sm text-gray-500 font-poppins">atau</span>
         <div className="flex-1 border-t border-gray-300"></div>
