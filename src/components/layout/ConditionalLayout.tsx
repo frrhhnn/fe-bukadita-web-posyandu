@@ -14,7 +14,8 @@ export default function ConditionalLayout({
   const isAuthPage =
     pathname?.includes("login") ||
     pathname?.includes("register") ||
-    pathname?.includes("callback");
+    pathname?.includes("callback") ||
+    pathname?.includes("reset-password");
   const isDashboardPage =
     pathname?.includes("admin") || pathname?.includes("user");
 

@@ -51,6 +51,24 @@ body {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
+/* Animation delays for staggered effects */
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Custom focus styles for better accessibility */
+.focus-ring {
+  @apply focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none;
+}
+
 /* Poppins font utilities */
 .font-poppins {
   font-family: "Poppins", sans-serif;

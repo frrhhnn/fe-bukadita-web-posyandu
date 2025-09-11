@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -10,10 +11,46 @@ export default function LoginPage() {
     rememberMe: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login data:", formData);
+    setIsLoading(true);
+    setErrors({});
+
+    // Validasi sederhana
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.email) {
+      newErrors.email = "Email wajib diisi";
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password wajib diisi";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Simulasi API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Handle login logic here
+      console.log("Login data:", formData);
+
+      // Redirect ke dashboard (implementasi sebenarnya)
+      // router.push("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrors({ general: "Terjadi kesalahan saat login" });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,15 +59,43 @@ export default function LoginPage() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-8">
-      {/* Header */}
+    <div className="w-full">
+      {/* Logo */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Masuk ke Akun</h1>
-        <p className="text-gray-600">Silakan masuk dengan kredensial Anda</p>
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/images/logo-default.svg"
+            alt="BukaDita Logo"
+            width={80}
+            height={80}
+            className="w-20 h-20"
+          />
+        </div>
+        <h1 className="text-3xl font-bold text-[#27548A] mb-2 font-poppins">
+          Masuk ke Akun
+        </h1>
+        <p className="text-[#578FCA] font-medium font-poppins">
+          Selamat datang kembali di BukaDita
+        </p>
       </div>
+
+      {/* Error Message */}
+      {errors.general && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-red-600 text-sm font-medium">{errors.general}</p>
+        </div>
+      )}
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -38,7 +103,7 @@ export default function LoginPage() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-semibold text-[#27548A] mb-2 font-poppins"
           >
             Email
           </label>
@@ -49,16 +114,25 @@ export default function LoginPage() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition"
+            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 ${
+              errors.email
+                ? "border-red-500 bg-red-50"
+                : "border-gray-300 hover:border-[#578FCA]"
+            }`}
             placeholder="Masukkan email Anda"
           />
+          {errors.email && (
+            <p className="mt-2 text-sm text-red-600 font-medium">
+              {errors.email}
+            </p>
+          )}
         </div>
 
         {/* Password Input */}
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-semibold text-[#27548A] mb-2 font-poppins"
           >
             Password
           </label>
@@ -69,9 +143,18 @@ export default function LoginPage() {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#27548A] focus:border-transparent outline-none transition"
+            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#27548A]/20 focus:border-[#27548A] outline-none transition-all duration-200 font-poppins placeholder:text-gray-400 ${
+              errors.password
+                ? "border-red-500 bg-red-50"
+                : "border-gray-300 hover:border-[#578FCA]"
+            }`}
             placeholder="Masukkan password Anda"
           />
+          {errors.password && (
+            <p className="mt-2 text-sm text-red-600 font-medium">
+              {errors.password}
+            </p>
+          )}
         </div>
 
         {/* Remember Me & Forgot Password */}
@@ -87,14 +170,14 @@ export default function LoginPage() {
             />
             <label
               htmlFor="rememberMe"
-              className="ml-2 block text-sm text-gray-700"
+              className="ml-2 block text-sm text-[#27548A] font-medium font-poppins"
             >
               Ingat saya
             </label>
           </div>
           <Link
-            href="/forgot-password"
-            className="text-sm text-[#27548A] hover:text-[#578FCA] transition"
+            href="/reset-password"
+            className="text-sm text-[#578FCA] hover:text-[#27548A] transition font-medium font-poppins hover:underline"
           >
             Lupa password?
           </Link>
@@ -103,19 +186,34 @@ export default function LoginPage() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3 px-4 bg-[#27548A] text-white font-semibold rounded-lg hover:bg-[#578FCA] focus:ring-2 focus:ring-[#27548A] focus:ring-offset-2 transition"
+          disabled={isLoading}
+          className="w-full py-3 px-4 bg-gradient-to-r from-[#27548A] to-[#578FCA] text-white font-semibold rounded-xl hover:from-[#1e3f6f] hover:to-[#4681c4] focus:ring-2 focus:ring-[#27548A] focus:ring-offset-2 transition-all duration-200 font-poppins disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
         >
-          Masuk
+          {isLoading ? (
+            <>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+              Memproses...
+            </>
+          ) : (
+            "Masuk"
+          )}
         </button>
       </form>
 
+      {/* Divider */}
+      <div className="my-6 flex items-center">
+        <div className="flex-1 border-t border-gray-300"></div>
+        <span className="px-4 text-sm text-gray-500 font-poppins">atau</span>
+        <div className="flex-1 border-t border-gray-300"></div>
+      </div>
+
       {/* Register Link */}
-      <div className="mt-6 text-center">
-        <p className="text-sm text-gray-600">
+      <div className="text-center">
+        <p className="text-sm text-gray-600 font-poppins">
           Belum punya akun?{" "}
           <Link
             href="/register"
-            className="font-medium text-[#27548A] hover:text-[#578FCA] transition"
+            className="font-semibold text-[#27548A] hover:text-[#578FCA] transition hover:underline"
           >
             Daftar sekarang
           </Link>

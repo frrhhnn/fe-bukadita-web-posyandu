@@ -9,6 +9,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   // Tentukan konten branding berdasarkan halaman
   const isLoginPage = pathname === "/login";
   const isRegisterPage = pathname === "/register";
+  const isResetPasswordPage = pathname === "/reset-password";
+  const isCallbackPage = pathname === "/callback";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
@@ -22,8 +24,14 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
               "Selamat datang kembali! Masuk ke akun Anda untuk melanjutkan."}
             {isRegisterPage &&
               "Bergabunglah dengan platform pembelajaran kader posyandu terdepan."}
+            {isResetPasswordPage &&
+              "Atur ulang password Anda dengan mudah dan aman."}
+            {isCallbackPage &&
+              "Memproses autentikasi Anda, mohon tunggu sebentar."}
             {!isLoginPage &&
               !isRegisterPage &&
+              !isResetPasswordPage &&
+              !isCallbackPage &&
               "Platform digital untuk kader posyandu Indonesia."}
           </div>
         </div>
