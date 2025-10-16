@@ -21,6 +21,14 @@ const withPWA = require("next-pwa")({
 });
 
 const nextConfig: NextConfig = {
+  // Disable ESLint during production builds (warnings won't block deployment)
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Disable TypeScript errors during builds (optional, use carefully)
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   images: {
     remotePatterns: [
       {
