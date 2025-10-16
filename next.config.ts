@@ -72,10 +72,8 @@ const nextConfig: NextConfig = {
   compress: true,
   // Production optimizations
   productionBrowserSourceMaps: false,
-  // Optimize fonts
-  optimizeFonts: true,
-  // Enable SWC minification
-  swcMinify: true,
+  // Note: optimizeFonts and swcMinify are enabled by default in Next.js 15
+  // No need to explicitly set them
   turbopack: {
     root: __dirname,
   },

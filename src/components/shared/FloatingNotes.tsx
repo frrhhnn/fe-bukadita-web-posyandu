@@ -727,7 +727,7 @@ const FloatingNotes: React.FC = () => {
                 <p className="text-xs sm:text-sm text-center text-gray-600 mb-5 sm:mb-6 px-2">
                   Apakah Anda yakin ingin menghapus catatan{" "}
                   <span className="font-medium">
-                    "{deleteConfirm.noteTitle}"
+                    &ldquo;{deleteConfirm.noteTitle}&rdquo;
                   </span>
                   ? Tindakan ini tidak dapat dibatalkan.
                 </p>

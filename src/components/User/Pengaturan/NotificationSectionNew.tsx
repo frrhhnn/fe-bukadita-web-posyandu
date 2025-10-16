@@ -4,6 +4,7 @@ import { Bell, Clock, BookOpen } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface NotificationSectionProps {}
 
 export default function NotificationSection({}: NotificationSectionProps) {
@@ -314,7 +315,7 @@ export default function NotificationSection({}: NotificationSectionProps) {
             <p className="text-xs text-red-700">
               Untuk mengaktifkan notifikasi, buka pengaturan browser → Izin
               situs → Cari {window.location.hostname} → Ubah izin Notifikasi
-              menjadi "Izinkan"
+              menjadi &ldquo;Izinkan&rdquo;
             </p>
           </div>
         )}

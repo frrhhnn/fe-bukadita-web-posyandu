@@ -236,16 +236,14 @@ export default function PengaturanPage() {
           toast.error(response.message || "❌ Gagal upload foto");
         }
       }
-    } catch (error: any) {
-      console.error("Error uploading photo:", error);
+    } catch (error: unknown) {
+      const err = error as Error;
+      console.error("Error uploading photo:", err);
 
       // Handle different error types
-      if (
-        error.message?.includes("fetch") ||
-        error.message?.includes("network")
-      ) {
+      if (err.message?.includes("fetch") || err.message?.includes("network")) {
         toast.error("❌ Koneksi gagal. Periksa internet Anda.");
-      } else if (error.message?.includes("size")) {
+      } else if (err.message?.includes("size")) {
         toast.error("❌ File terlalu besar");
       } else {
         toast.error("❌ Gagal upload foto. Silakan coba lagi.");
@@ -335,17 +333,15 @@ export default function PengaturanPage() {
           toast.error("Gagal mengubah password. Silakan coba lagi.");
         }
       }
-    } catch (error: any) {
-      console.error("Error changing password:", error);
+    } catch (error: unknown) {
+      const err = error as Error;
+      console.error("Error changing password:", err);
 
       // Handle different types of errors
-      if (
-        error.message?.includes("fetch") ||
-        error.message?.includes("network")
-      ) {
+      if (err.message?.includes("fetch") || err.message?.includes("network")) {
         toast.error("❌ Koneksi gagal. Periksa internet Anda.");
-      } else if (error.message?.includes("password")) {
-        toast.error(error.message);
+      } else if (err.message?.includes("password")) {
+        toast.error(err.message);
       } else {
         toast.error("❌ Terjadi kesalahan. Silakan coba lagi.");
       }
