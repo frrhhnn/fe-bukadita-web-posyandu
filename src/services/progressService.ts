@@ -163,9 +163,11 @@ export class ProgressService {
       const error = err as ApiError;
       console.error("[PROGRESS_SERVICE] Error fetching module progress:", {
         moduleId,
+        backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
         error: error?.message || "Unknown error",
         status: error?.status,
         code: error?.code,
+        fullError: err,
       });
 
       // If user is not authenticated or progress doesn't exist, return empty progress
